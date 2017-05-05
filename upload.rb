@@ -1,10 +1,11 @@
 require 'goprocam'
 require 'aws-sdk'
-require 'open-uri'
+# require 'open-uri'
 
 region = 'us-west-1'
 bucket = 'window-stream'
-file = './105GOPRO-GOPR7633.MP4'
+file = `ls *.MP4`.to_s.strip
+puts file.inspect
 key = File.basename(file)
 
 puts "uploading: " + file
@@ -18,3 +19,4 @@ s3 = Aws::S3::Object.new(
   ) # session_token
   # ...
 ).upload_file(file)
+# puts s3.object

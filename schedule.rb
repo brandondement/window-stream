@@ -1,16 +1,19 @@
 require 'open_weather'
-require 'json'
-require 'pp'
 
-# get current weather by city name
-options = { APPID: 'fc56307bd6990a44569e402e2146a03b' }
 resp = OpenWeather::Current.city(
   "San Francisco, CA",
-  options
+  { APPID: 'fc56307bd6990a44569e402e2146a03b' }
 )
-pp resp
-sys = resp['sys']
-sunrise = Time.at(sys['sunrise'])
-sunset = Time.at(sys['sunset'])
+
+# require 'pp'
+# pp resp
+
+sunrise = Time.at(resp['sys']['sunrise'])
+sunset = Time.at(resp['sys']['sunset'])
 puts "sunrise: #{sunrise}"
 puts "sunset: #{sunset}"
+
+# record at 30 mins before sunrise
+puts sunrise.to_i
+
+# record at 1 hr before sunset

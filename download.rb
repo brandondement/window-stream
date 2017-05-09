@@ -12,3 +12,4 @@ file = gpCamera.get_media()
 puts "downloading: " + file
 gpCamera.dl_media() # open-uri: file.puts f.read
 puts "downloaded: " + file
+puts "You shoud get internet now to upload..."

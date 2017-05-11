@@ -1,11 +1,14 @@
 require 'goprocam'
 
-puts `pwd`
+if ARGV.count == 0
+  puts 'usage: ruby record.rb [seconds]'
+  exit
+end
+
 gpCamera = Camera.new
 sleep 1
 gpCamera.shutter(Shutter::ON)
-# take input from ARGV
-sleep 5
+sleep ARGV[0].to_i
 gpCamera.shutter(Shutter::OFF)
 sleep 1
 puts 'recorded ' + gpCamera.get_media()

@@ -8,12 +8,25 @@ resp = OpenWeather::Current.city(
   { APPID: 'fc56307bd6990a44569e402e2146a03b' }
 )
 # pp resp
-cmd = "sudo #{Dir.pwd}/connect-to-gopro.sh;" +
-    "ruby #{Dir.pwd}/record.rb #{SECS_IN_HOUR * 1.5};" +
-    "sudo #{Dir.pwd}/connect-to-home.sh;" +
-    "ruby #{Dir.pwd}/upload.rb"
 
+# connect to gopro
+`sudo #{Dir.pwd}/connect-to-gopro.sh`
+sleep 2
+
+# record
+duration = SECS_IN_HOUR * 1.5
+`ruby #{Dir.pwd}/record.rb #{duration}`
+# sleep duration
+
+# connect to home network
+`sudo #{Dir.pwd}/connect-to-home.sh`
+sleep 2
+
+# upload
+`ruby #{Dir.pwd}/upload.rb`
 puts cmd
+
+
 exit
 
 # start recording 30 mins before sunrise

@@ -1,3 +1,5 @@
+require 'goprocam'
+
 SECS_IN_HOUR = 60 * 60;
 
 # connect to gopro
@@ -8,6 +10,9 @@ sleep 2
 duration = 5 # SECS_IN_HOUR * 1.5
 system("ruby #{Dir.pwd}/record.rb #{duration}")
 # sleep duration
+
+# download
+system("ruby #{Dir.pwd}/download.rb")
 
 # connect to home network
 system("sudo #{Dir.pwd}/connect-to-home.sh")

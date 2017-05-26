@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 require 'open_weather'
 # require 'pp'
 

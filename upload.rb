@@ -4,7 +4,7 @@ require 'aws-sdk'
 
 region = 'us-west-1'
 bucket = 'window-stream'
-file = `ls *.MP4`.to_s.strip
+file = `ls ~/*.MP4`.to_s.strip
 puts file.inspect
 key = File.basename(file)
 

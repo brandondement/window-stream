@@ -9,7 +9,7 @@ system("sudo #{ENV['WS_HOME']}/connect-to-gopro.sh")
 sleep 8
 
 # record
-duration = 5 # SECS_IN_HOUR * 1.5
+duration = SECS_IN_HOUR * 1.5
 system("ruby #{ENV['WS_HOME']}/record.rb #{duration}")
 
 # download
@@ -25,4 +25,4 @@ sleep 8
 system("ruby #{ENV['WS_HOME']}/upload.rb")
 
 # cleanup
-system("rm #{ENV['WS_HOME']}/*.MP4")
+system("rm ~/*.MP4")

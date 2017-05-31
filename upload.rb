@@ -14,8 +14,8 @@ s3 = Aws::S3::Object.new(
   bucket_name: bucket,
   key: key,
   credentials: Aws::Credentials.new( #gpCamera
-    'AKIAI3SKQDQOR3BYLMLA', # access_key_id
-    'W1MT9fALd7LFJrFYBzZRvrp8d9p1uI2ILmNvbaYi' # secret_access_key
+    ENV['AWS_ACCESS_KEY_ID'], # access_key_id
+    ENV['AWS_SECRET'] # secret_access_key
   ) # session_token
   # ...
 ).upload_file(file)

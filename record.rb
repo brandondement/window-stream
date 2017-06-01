@@ -1,6 +1,6 @@
 require 'goprocam'
 
-if ARGV.count == 0
+unless ARGV.count == 1
   puts 'usage: ruby record.rb [seconds]'
   exit
 end

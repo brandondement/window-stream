@@ -2,7 +2,7 @@ require 'goprocam'
 require 'open-uri'
 
 unless ARGV.count == 1
-  puts 'usage: ruby download.rb [prefix]'
+  puts 'usage: ruby download.rb [filename]'
   exit
 end
 
@@ -27,4 +27,8 @@ Net::HTTP.start(uri.host, uri.port) do |http|
 end
 
 puts "downloaded #{filename}"
+
+gpCamera.delete("last")
+puts "deleted #{large_file}"
+
 puts "You should get internet now to upload..."

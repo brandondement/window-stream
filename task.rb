@@ -8,7 +8,7 @@ unless ARGV.count == 1
 end
 
 suffix = ARGV[0]
-filename = "#{ENV['WS_HOME']}/#{Time.now.strftime("%Y-%m-%d")}-#{suffix}.MP4"
+filename = "#{ENV['WS_HOME']}/#{Time.now.strftime("%Y-%m-%d")}-#{suffix}.mp4"
 
 # connect to gopro
 system("sudo #{ENV['WS_HOME']}/connect-to-gopro.sh")

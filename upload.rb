@@ -19,3 +19,5 @@ s3 = Aws::S3::Object.new(
   ) # session_token
   # ...
 ).upload_file(filename)
+
+system("rm #{filename}")

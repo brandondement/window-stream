@@ -10,10 +10,10 @@ resp = OpenWeather::Current.city(
 )
 # pp resp
 
-# start recording 30 mins before sunrise
-sunrise_start = Time.at(resp['sys']['sunrise']) - (SECS_IN_HOUR / 2)
+# start recording 1 hr before sunrise
+sunrise_start = Time.at(resp['sys']['sunrise']) - SECS_IN_HOUR
 system("echo 'ruby #{ENV['WS_HOME']}/task.rb sr' | at #{sunrise_start.strftime "%H:%M"}")
 
-# start recording 1 hr before sunset
-sunset_start = Time.at(resp['sys']['sunset']) - SECS_IN_HOUR
+# start recording 30 mins before sunset
+sunset_start = Time.at(resp['sys']['sunset']) - (SECS_IN_HOUR / 2)
 system("echo 'ruby #{ENV['WS_HOME']}/task.rb ss' | at #{sunset_start.strftime "%H:%M"}")

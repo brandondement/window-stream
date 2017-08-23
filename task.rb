@@ -31,6 +31,3 @@ sleep 8
 
 # upload
 system("ruby #{ENV['WS_HOME']}/upload.rb #{filename}")
-
-# cleanup
-system("rm #{filename}")

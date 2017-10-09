@@ -16,7 +16,7 @@ system("sudo #{ENV['WS_HOME']}/connect-to-gopro.sh")
 # wait to establish connection
 sleep 8
 
-# record
+# record for 1.5 hours
 duration = SECS_IN_HOUR * 1.5
 system("ruby #{ENV['WS_HOME']}/record.rb #{duration}")
 
